@@ -10,61 +10,61 @@ const scissors_div = document.getElementById("scissors");
 
 
 
-function main(){
-    rock_div.addEventListener('click', function() {
-        game("rock");
-    })
+function main() {
+  rock_div.addEventListener('click', function () {
+    game("rock");
+  })
 
-    paper_div.addEventListener('click', function() {
-        game("paper");
-    })
+  paper_div.addEventListener('click', function () {
+    game("paper");
+  })
 
-    scissors_div.addEventListener('click', function() {
-        game("scissors");
-    })
+  scissors_div.addEventListener('click', function () {
+    game("scissors");
+  })
 }
 
-function getCompChoice(){
-    const choices = ["rock", "paper", "scissors"];
-    const randomNumber = Math.floor(Math.random()*3);
-    return choices[randomNumber];
+function getCompChoice() {
+  const choices = ["rock", "paper", "scissors"];
+  const randomNumber = Math.floor(Math.random() * 3);
+  return choices[randomNumber];
 }
 
-function win(user, comp){
-    userScore ++;
-    userScore_span.innerHTML = userScore;
-    result_p.innerHTML = user + " beats " + comp + ". You Win!"
+function win(user, comp) {
+  userScore++;
+  userScore_span.innerHTML = userScore;
+  result_p.innerHTML = user + " beats " + comp + ". You Win!"
 }
 
-function lose(user, comp){
-    compScore ++;
-    compScore_span.innerHTML = compScore;
-    result_p.innerHTML = user + " loses to " + comp + ". You Lose!"
+function lose(user, comp) {
+  compScore++;
+  compScore_span.innerHTML = compScore;
+  result_p.innerHTML = user + " loses to " + comp + ". You Lose!"
 }
 
-function tie(user, comp){
-    result_p.innerHTML = user + " = " + comp + ". Tie!"
+function tie(user, comp) {
+  result_p.innerHTML = user + " = " + comp + ". Tie!"
 }
 
 function game(userChoice) {
-    const compChoice = getCompChoice();
-    switch (userChoice + compChoice) {
-        case "rockscissors":
-        case "paperrock":
-        case "scissorspaper":
-            win(userChoice, compChoice);
-            break;
-        case "scissorsrock":
-        case "paperscissors":
-        case "rockpaper":
-            lose(userChoice, compChoice);
-            break;
-        case "scissorsscissors":
-        case "paperpaper":
-        case "rockrock":
-            tie(userChoice, compChoice);
-            break;
-    }
+  const compChoice = getCompChoice();
+  switch (userChoice + compChoice) {
+    case "rockscissors":
+    case "paperrock":
+    case "scissorspaper":
+      win(userChoice, compChoice);
+      break;
+    case "scissorsrock":
+    case "paperscissors":
+    case "rockpaper":
+      lose(userChoice, compChoice);
+      break;
+    case "scissorsscissors":
+    case "paperpaper":
+    case "rockrock":
+      tie(userChoice, compChoice);
+      break;
+  }
 }
 
 main();
